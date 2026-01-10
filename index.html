@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Local Furniture — Business Card</title>
+  <meta name="description" content="Local handcrafted furniture. Contact, services, and small portfolio." />
+  <meta property="og:title" content="Your Local Furniture" />
+  <meta property="og:description" content="Handcrafted furniture — local shop. Contact & portfolio." />
+  <meta name="theme-color" content="#2b2b2b" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <main class="page">
+    <article class="card" role="region" aria-labelledby="company-name">
+      <header class="card-header">
+        <img src="assets/logo.svg" alt="Company logo" class="logo" />
+        <div>
+          <h1 id="company-name" class="company">Your Local Furniture</h1>
+          <p class="tagline">Handcrafted furniture • Repairs • Custom orders</p>
+        </div>
+      </header>
+
+      <section class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="sr-only">Contact</h2>
+        <p class="line"><strong>Owner:</strong> Jan Kowalski</p>
+        <p class="line"><strong>Phone:</strong> <a href="tel:+48123123123">+48 12 312 31 23</a></p>
+        <p class="line"><strong>Email:</strong> <a href="mailto:hello@localfurniture.example">hello@localfurniture.example</a></p>
+        <p class="line"><strong>Address:</strong> 12 Example St, YourTown</p>
+      </section>
+
+      <section class="services" aria-labelledby="services-heading">
+        <h3 id="services-heading">Services</h3>
+        <ul>
+          <li>Custom cabinets, tables & chairs</li>
+          <li>Refinishing & repairs</li>
+          <li>Free local consultation & measurement</li>
+        </ul>
+      </section>
+
+      <section class="gallery" aria-labelledby="gallery-heading">
+        <h3 id="gallery-heading">Small portfolio</h3>
+        <div class="thumbs" aria-hidden="false">
+          <div class="thumb"> <!-- Replace with actual images -->
+            <div class="thumb-placeholder">Table</div>
+          </div>
+          <div class="thumb">
+            <div class="thumb-placeholder">Chair</div>
+          </div>
+          <div class="thumb">
+            <div class="thumb-placeholder">Cabinet</div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="card-footer">
+        <p class="hours"><strong>Opening hours:</strong> Mon–Fri 09:00–17:00</p>
+        <p class="cta">
+          <a class="btn" href="mailto:hello@localfurniture.example">Email us</a>
+          <a class="btn ghost" href="tel:+48123123123">Call now</a>
+        </p>
+        <p class="small">Made locally • Follow: <a href="#" aria-label="Instagram (placeholder)">@localfurniture</a></p>
+      </footer>
+    </article>
+
+    <aside class="map" aria-label="Map">
+      <!-- Replace src with your Google Maps / OpenStreetMap embed -->
+      <iframe
+        title="Location map"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=19.0%2C50.0%2C19.1%2C50.1&layer=mapnik"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <p class="map-note">Map preview — replace with your actual location embed.</p>
+    </aside>
+  </main>
+
+  <noscript>
+    <div class="noscript">This site works best with JavaScript enabled, but content is still available without it.</div>
+  </noscript>
+</body>
+</html>

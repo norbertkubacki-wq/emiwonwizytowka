@@ -1,0 +1,10 @@
+<!-- Simple placeholder SVG logo — replace with your own logo or edit colors -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none" role="img" aria-label="Company logo">
+  <rect width="120" height="120" rx="16" fill="#fefcf8"/>
+  <g transform="translate(12 18)" fill="#7b4e2a">
+    <rect x="0" y="40" width="96" height="6" rx="3" />
+    <rect x="0" y="24" width="68" height="8" rx="4" />
+    <rect x="0" y="0" width="38" height="14" rx="3" />
+  </g>
+  <text x="60" y="105" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#7b4e2a">Local Furniture</text>
+</svg>
