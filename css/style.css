@@ -1,180 +1,154 @@
-/* Simple responsive business-card layout for a small furniture business.
-   Customize colors, fonts (use system fonts or add Google Fonts link in index.html). */
-
 :root{
-  --bg: #f6f6f5;
+  --bg: #fcfefb;
   --card: #ffffff;
-  --accent: #7b4e2a; /* warm wood-like tone */
-  --muted: #666;
+  --muted-card: #f7fbf7;
+  --text: #0b1b2b;
+  --muted: #6b7280;
+  --accent-green: #2eb872;
+  --accent-yellow: #ffd54f;
   --radius: 12px;
-  --shadow: 0 6px 20px rgba(18,18,18,0.08);
-  --text: #222;
-  --max-width: 980px;
-  --card-width: 420px;
-  --gap: 20px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --container: 1000px;
+  --gap: 1rem;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: light;
+  font-size:16px;
+  --shadow-subtle: 0 6px 18px rgba(16,24,40,0.04);
+  --shadow-small: 0 2px 6px rgba(16,24,40,0.03);
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
-  background:linear-gradient(180deg,#f8f7f6, #f1efeD);
+  background:var(--bg);
   color:var(--text);
+  line-height:1.55;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  padding:32px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   font-size:16px;
 }
 
-.page{
-  width:100%;
-  max-width:var(--max-width);
-  display:grid;
-  grid-template-columns: 1fr 320px;
-  gap:var(--gap);
-  align-items:start;
+.wrap{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:1rem;
 }
 
-/* Card */
+/* Skip link */
+.skip-link{position:absolute;left:-999px}
+.skip-link:focus{left:1rem;top:1rem;padding:.5rem .75rem;background:var(--text);color:#fff;border-radius:8px}
+
+/* Header */
+.site-header{padding:.5rem 0}
+.brand{display:flex;align-items:center;gap:.8rem}
+.logo{
+  width:48px;height:48px;border-radius:8px;
+  background:var(--accent-green);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;
+}
+.title{margin:0;font-size:1.125rem}
+.tagline{margin:0;color:var(--muted);font-size:.95rem}
+
+/* Main layout */
+.main{display:grid;grid-template-columns:1fr;gap:1rem;padding:1rem 0}
 .card{
   background:var(--card);
+  padding:1rem;
   border-radius:var(--radius);
-  padding:22px;
-  box-shadow:var(--shadow);
-  width:100%;
-  max-width:var(--card-width);
-  min-width:260px;
+  box-shadow:var(--shadow-subtle);
+  border:1px solid rgba(11,27,43,0.04);
 }
 
-.card-header{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  margin-bottom:12px;
-}
-
-.logo{
-  width:72px;
-  height:72px;
-  border-radius:10px;
-  background:linear-gradient(180deg,#fff,#f5f5f5);
-  padding:8px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.06);
-  object-fit:contain;
-}
-
-.company{
-  margin:0;
-  font-size:1.25rem;
-  color:var(--accent);
-  letter-spacing:0.2px;
-}
-
-.tagline{
-  margin:6px 0 0 0;
-  color:var(--muted);
-  font-size:0.95rem;
-}
-
-/* Contact & services */
-.contact .line { margin:8px 0; color:var(--muted) }
-.contact a { color:var(--accent); text-decoration:none }
-
-.services ul{
-  margin:8px 0 0;
-  padding-left:1.15rem;
-  color:var(--muted);
-}
-
-.gallery{
-  margin-top:12px;
-}
-.thumbs{
-  display:flex;
-  gap:10px;
-  margin-top:8px;
-}
-.thumb{
-  width:80px;
-  height:60px;
+/* Hero */
+.hero .lead{
+  background:var(--muted-card);
+  padding:.6rem;
   border-radius:8px;
-  overflow:hidden;
-  background:linear-gradient(180deg,#eee,#f9f9f9);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#aaa;
-  font-size:0.9rem;
+  margin-bottom:.75rem;
 }
-.thumb-placeholder{ padding:6px; text-align:center; color:#7a7a7a }
+h2,h3{margin:0 0 .5rem 0}
 
-/* Footer */
-.card-footer{
-  margin-top:16px;
-  border-top:1px dashed #eee;
-  padding-top:12px;
-  color:var(--muted);
-}
-.btn{
-  display:inline-block;
-  background:var(--accent);
-  color:white;
-  padding:8px 12px;
-  border-radius:8px;
-  text-decoration:none;
-  margin-right:8px;
-  font-weight:600;
-}
-.btn.ghost{
-  background:transparent;
-  color:var(--accent);
-  border:1px solid rgba(123,78,42,0.12);
-}
-
-/* Map aside */
-.map{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:10px;
-  box-shadow:var(--shadow);
-  min-height:200px;
+/* Lists: ładniejsze, czytelne i spójne */
+.card ul,
+.card ol{
+  margin:0 0 1rem 0;
+  padding:0;
+  list-style:none;
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:.6rem;
 }
-.map iframe{
-  width:100%;
-  height:220px;
-  border:0;
+
+/* Unordered lists: bullet as solid green dot */
+.card ul li{
+  display:flex;
+  align-items:flex-start;
+  gap:.75rem;
+  padding:.35rem .45rem;
   border-radius:8px;
 }
-.map-note{ font-size:0.85rem; color:var(--muted) }
-
-/* Small print & accessibility */
-.small{ font-size:0.85rem; color:var(--muted) }
-.sr-only{
-  position:absolute!important;
-  height:1px; width:1px; overflow:hidden;
-  clip:rect(1px,1px,1px,1px); white-space:nowrap;
+.card ul li::before{
+  content:"";
+  flex:0 0 auto;
+  width:10px;
+  height:10px;
+  margin-top:.45rem; /* aligns dot with first line of text */
+  border-radius:50%;
+  background:var(--accent-green);
+  box-shadow:var(--shadow-small);
 }
 
-/* Responsive */
-@media (max-width:880px){
-  .page{ grid-template-columns: 1fr; padding:0; justify-items:center }
-  .map iframe{ height:180px }
-  body{ padding:18px }
+/* Ordered lists: numbered badges (yellow) */
+.card ol li{
+  display:flex;
+  align-items:flex-start;
+  gap:.75rem;
+  padding:.35rem .45rem;
+  border-radius:8px;
+}
+.card ol{
+  counter-reset:emicounter;
+}
+.card ol li{
+  counter-increment:emicounter;
+}
+.card ol li::before{
+  content:counter(emicounter);
+  flex:0 0 auto;
+  min-width:28px;
+  height:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:var(--accent-yellow);
+  color:var(--text);
+  font-weight:700;
+  box-shadow:var(--shadow-small);
+  font-size:0.95rem;
+  margin-top: -2px;
 }
 
-/* Print-friendly: print a single business-card sized area */
-@media print{
-  body{ background:white; padding:0; }
-  .page{ grid-template-columns: 1fr }
-  .map, .card{ box-shadow:none; border-radius:0; }
-  .map{ display:none } /* Hide map on print */
-  .card{ width:90mm; height:54mm; padding:12mm; } /* typical business card size */
-  .thumb-placeholder{ display:none }
+/* Slight hover/focus state for list items to improve scanning */
+.card ul li:hover,
+.card ol li:hover{
+  background: rgba(43,142,114,0.03);
+}
+
+/* CTA and contact */
+.cta a{color:var(--accent-green);font-weight:600;text-decoration:none}
+.cta a:hover{text-decoration:underline}
+.note{font-weight:700;margin-top:.25rem}
+.tip{margin-top:1rem;color:var(--muted)}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(11,27,43,0.04);padding:1rem 0;margin-top:1.5rem}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.small{color:var(--muted);margin:0;font-size:.95rem}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .card ul li::before{margin-top:.6rem}
+  .card ol li::before{min-width:26px;height:26px;font-size:0.9rem;margin-top:0}
 }
