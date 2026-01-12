@@ -13,13 +13,19 @@
   <a class="skip-link" href="#main">Przejdź do treści</a>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap header-inner">
       <div class="brand">
-        <div class="logo" aria-hidden="true">E</div>
+        <!-- Logo: wgraj plik logo.png do repo root -->
+        <img src="logo.png" alt="Logo EmIwo — pracownia mebli drobnych i nietypowych" class="brand-logo" />
         <div>
           <h1 class="title">EmIwo</h1>
           <p class="tagline">pracownia mebli drobnych i nietypowych</p>
         </div>
+      </div>
+
+      <div class="contact-quick" aria-hidden="false">
+        <a class="phone" href="tel:+48123456789">+48 123 456 789</a>
+        <a class="email" href="mailto:kontakt@emiwo.example">kontakt@emiwo.example</a>
       </div>
     </div>
   </header>
@@ -51,8 +57,25 @@
 
       <p>Stawiamy na krótkie terminy, bezpośredni kontakt z wykonawcą i realne dopasowanie do przestrzeni.</p>
 
-      <p class="local"><strong>📍 Działamy lokalnie</strong></p>
-      <p class="cta">📞 <a href="tel:+48123456789">+48 123 456 789</a> · ✉️ <a href="mailto:kontakt@emiwo.example">kontakt@emiwo.example</a></p>
+      <p class="local"><strong>📍 Działamy lokalnie — Wieliczka (przykładowa lokalizacja)</strong></p>
+      <p class="tip"><strong>Tip praktyczny:</strong> Na stronie nie dawaj cennika – dawaj zakresy i proces.</p>
+    </section>
+
+    <section id="map" class="card" aria-labelledby="map-title">
+      <h3 id="map-title">Gdzie nas znaleźć — Wieliczka</h3>
+
+      <!-- Responsywna mapa (Wieliczka). loading="lazy" dla wydajności. -->
+      <div class="map-container" role="region" aria-label="Mapa lokalizacji - Wieliczka">
+        <iframe
+          loading="lazy"
+          src="https://www.google.com/maps?q=Wieliczka&z=13&output=embed"
+          title="Mapa: Wieliczka"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <p class="map-note small">Mapa wskazuje ogólną lokalizację: Wieliczka. Dokładny adres podamy po kontakcie.</p>
     </section>
   </main>
 
