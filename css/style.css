@@ -1,19 +1,219 @@
-:root {
-  /* Additions for new sections */
-  --highlight: #ff6b4a; /* Highlight CTA */
+:root{
+  /* Podstawowa paleta oparta na logo + żywe akcenty */
+  --bg: #fbf7f3;           /* kremowe tło */
+  --card: #ffffff;         /* karta - biały */
+  --muted-card: #f3ece6;   /* delikatny beżowy kontrast */
+  --text: #231815;         /* bardzo ciemny brąz */
+  --muted: #6b5a50;        /* stonowany brąz */
+  --brand-dark: #5a3e34;   /* ciemny brąz z logo */
+  --brand-mid: #8b5e3c;    /* średni brąz / ciepły */
+  --brand-tan: #d9c1ad;    /* jasny beż / tan */
+  --accent: #b8895a;       /* ciepły złoto-beżowy (subtelny) */
+
+  /* Żywe akcenty (dodatkowe) */
+  --live-teal: #17a589;    /* żywe morsko-zielone akcenty */
+  --live-coral: #ff6b4a;   /* energetyczny koral dla CTA */
+  --live-amber: #ffb84d;   /* jasny akcent dla badge'ów */
+
+  --radius: 12px;
+  --container: 1000px;
+  --gap: 1rem;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: light;
+  font-size:16px;
+  --shadow-subtle: 0 6px 18px rgba(35,24,21,0.04);
+  --shadow-small: 0 2px 6px rgba(35,24,21,0.03);
 }
 
-/* New section styles */
-.card.hero {
-  padding: 2rem;
-  background: var(--highlight);
-  color: #fff;
-  border-radius: var(--radius);
-  margin: var(--gap);
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-size:16px;
 }
-.card.services, .card.trust, .card.contact {
-  padding: 1.5rem;
-  border: 1px solid var(--muted);
+
+.wrap{
+  max-width:var(--container);
+  margin:0 auto;
+  padding:1rem;
 }
-.card.gallery {
-  font-size: 1.125rem; }
+
+/* Skip link */
+.skip-link{position:absolute;left:-999px}
+.skip-link:focus{left:1rem;top:1rem;padding:.5rem .75rem;background:var(--text);color:#fff;border-radius:8px}
+
+/* Header */
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.9rem}
+.brand-logo{
+  width:84px;height:auto;border-radius:8px;object-fit:contain;display:block;
+  box-shadow:var(--shadow-small);
+  border:2px solid rgba(35,24,21,0.04);
+  background: transparent;
+  padding:6px;
+}
+.title{margin:0;font-size:1.125rem;color:var(--brand-dark);font-weight:700}
+.tagline{margin:0;color:var(--muted);font-size:.95rem}
+
+/* Quick contact in header */
+.contact-quick{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem}
+.contact-quick a{color:var(--brand-mid);text-decoration:none;font-weight:600}
+.contact-quick a:hover{color:var(--live-teal);text-decoration:underline}
+
+/* Main layout */
+.main{display:grid;grid-template-columns:1fr;gap:1rem;padding:1rem 0}
+.card{
+  background:var(--card);
+  padding:1rem;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-subtle);
+  border:1px solid rgba(35,24,21,0.04);
+}
+
+/* Hero */
+.hero .lead{
+  background:var(--muted-card);
+  padding:.6rem;
+  border-radius:8px;
+  margin-bottom:.75rem;
+  color:var(--brand-dark);
+}
+h2,h3{margin:0 0 .5rem 0;color:var(--brand-dark)}
+
+/* Lists: ładne, czytelne i spójne (bez gradientów) */
+.card ul,
+.card ol{
+  margin:0 0 1rem 0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+}
+
+.card ul li,
+.card ol li{
+  display:flex;
+  align-items:flex-start;
+  gap:.75rem;
+  padding:.45rem .6rem;
+  border-radius:8px;
+  transition:background .12s ease, transform .06s ease;
+}
+
+/* Unordered lists: solid brand-mid dot with small live-teal accent edge */
+.card ul li::before{
+  content:"";
+  flex:0 0 auto;
+  width:10px;
+  height:10px;
+  margin-top:.5rem;
+  border-radius:50%;
+  background:var(--brand-mid);
+  box-shadow:0 0 0 4px rgba(23,165,137,0.06), var(--shadow-small);
+}
+
+/* Ordered lists: numbered badges using live-amber for energizing look */
+.card ol{
+  counter-reset:emicounter;
+}
+.card ol li{
+  counter-increment:emicounter;
+}
+.card ol li::before{
+  content:counter(emicounter);
+  flex:0 0 auto;
+  min-width:30px;
+  height:30px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:6px;
+  background:var(--live-amber);
+  color:var(--brand-dark);
+  font-weight:700;
+  box-shadow:var(--shadow-small);
+  font-size:0.95rem;
+  margin-top:-2px;
+}
+
+/* Hover/focus state for list items: subtle live-teal tint + slight lift */
+.card ul li:hover,
+.card ol li:hover{
+  background: rgba(23,165,137,0.04);
+  transform: translateY(-2px);
+}
+
+/* Highlight important fragments inside lists and text */
+.badge-inline{
+  display:inline-block;
+  padding:.15rem .5rem;
+  border-radius:999px;
+  background:var(--live-coral);
+  color:#fff;
+  font-weight:700;
+  font-size:.85rem;
+  margin-left:.5rem;
+}
+
+/* Buttons / CTAs (if used) */
+.btn{
+  display:inline-block;
+  padding:.55rem .95rem;
+  border-radius:10px;
+  border:0;
+  background:var(--live-coral);
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+  font-weight:700;
+  box-shadow:var(--shadow-small);
+}
+.btn.secondary{
+  background:var(--live-teal);
+  color:#fff;
+}
+.btn:focus{outline:3px solid rgba(255,107,74,0.18);outline-offset:3px}
+
+/* Map container: responsive aspect ratio */
+.map-container{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%; /* 16:9 aspect ratio */
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(35,24,21,0.04);
+  box-shadow:var(--shadow-small);
+  background:var(--muted-card);
+}
+.map-container iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* CTA and contact styling */
+.cta a{color:var(--live-coral);font-weight:700;text-decoration:none}
+.cta a:hover{color:var(--live-teal);text-decoration:underline}
+.note{font-weight:700;margin-top:.25rem;color:var(--brand-dark)}
+.tip{margin-top:1rem;color:var(--muted)}
+
+/* Footer */
+.site-footer{border-top:1px solid rgba(35,24,21,0.04);padding:1rem 0;margin-top:1.5rem}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.small{color:var(--muted);margin:0;font-size:.95rem}
+
+/* Responsive tweaks */
+@media (max-width:720px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:.75rem}
+  .brand-logo{width:72px}
+  .contact-quick{align-items:flex-start}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
