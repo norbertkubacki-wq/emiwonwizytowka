@@ -217,3 +217,147 @@ h2,h3{margin:0 0 .5rem 0;color:var(--brand-dark)}
   .contact-quick{align-items:flex-start}
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
+
+#cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 900px;
+  width: calc(100% - 40px);
+  background: rgba(30, 30, 30, 0.95);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: none;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+#cookie-banner a {
+  color: #7db7ff;
+  text-decoration: underline;
+}
+
+#cookie-banner a:hover {
+  color: #a8d0ff;
+}
+
+#cookie-accept {
+  background: #4ea3ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#cookie-accept:hover {
+  background: #6bb4ff;
+}
+
+#cookie-accept:active {
+  transform: scale(0.97);
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  #cookie-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ============================
+   Polityka prywatności
+   ============================ */
+
+.card.privacy {
+  padding: 1.5rem 1.75rem;
+}
+
+/* Główny tytuł */
+.card.privacy h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--brand-dark);
+}
+
+/* Sekcje */
+.card.privacy h2 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-left: .6rem;
+  border-left: 4px solid var(--accent);
+  color: var(--brand-dark);
+}
+
+/* Tekst */
+.card.privacy p {
+  margin: 0.5rem 0 0.75rem 0;
+  color: var(--text);
+  max-width: 75ch;
+}
+
+/* Linki */
+.card.privacy a {
+  color: var(--brand-mid);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.card.privacy a:hover {
+  color: var(--live-teal);
+}
+
+/* Listy – korzystają z Twojego istniejącego stylu,
+   ale z mniejszymi odstępami */
+.card.privacy ul,
+.card.privacy ol {
+  margin-top: 0.5rem;
+}
+
+/* Wyróżnione informacje (np. administrator danych) */
+.privacy-highlight {
+  background: var(--muted-card);
+  border-left: 4px solid var(--live-teal);
+  padding: .75rem 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: var(--brand-dark);
+  box-shadow: var(--shadow-small);
+}
+
+/* Meta info (np. data obowiązywania) */
+.privacy-meta {
+  margin-top: 2rem;
+  font-size: .9rem;
+  color: var(--muted);
+  border-top: 1px dashed rgba(35,24,21,0.15);
+  padding-top: .75rem;
+}
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+  .card.privacy {
+    padding: 1.25rem 1rem;
+  }
+
+  .card.privacy h1 {
+    font-size: 1.5rem;
+  }
+}
+
